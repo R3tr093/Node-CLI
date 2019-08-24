@@ -16,6 +16,15 @@
 
 <p> Vous trouverez toutes les informations sur le coté pédagogique que j'ai put assimiler dans les commentaires de mes lignes de codes. </p>
 
+<p> Vous pourrez notamment vous rendre sur les 4 branches suivantes qui aborde chacune les modules à part avec les commandes suivantes : </p> 
+
+<p> :one:<b>git checkout chalk </b></p> 
+<p> :two:<b>git checkout inquire</b></p> 
+<p> :three:<b>git checkout figlet </b></p> 
+<p> :four:<b>git checkout shell </b></p> 
+
+<p> :warning: <em> Ces branches ne seront accessibles que à partir de la version 0.1.0 du projet </em></p>
+
 <p> Pour ceux qui n'aurais pas installer Node sur leurs systèmes je vous fais un très sobre tutoriel d'installation pour sa dernière version un peu plus bas. </p>
 
 ##  :cd: Installation de Node
@@ -43,6 +52,8 @@
 <p> Télécharger le repository, ensuite placez vous avec votre terminal dans la racine du projet Node-CLI. </p>
 
 <p>:arrow_right: <b> npm init </b><em><br>( Crée une instance npm pour le projet.)</em></p>
+
+<p> Il vous sera alors demander si vous désirez définir un configuration pour votre package.json, si vous le désirez vous pouvez entrez votre nom d'auteur, des dépendances, ou ce qui vous passe par la tête. Dans les faits vous pouvez appuyez sur enter jusqu'à ce qu'il initialise le repository car nous n'avons besoin d'aucunes particularités dans le cadre de projet? </p>
 
 <p>:arrow_right: <b> ~ npm install --save chalk figlet inquirer shelljs </b><em><br>( Installe les modules que nous allons explorer.)</em></p>
 
