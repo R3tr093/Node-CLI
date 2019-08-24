@@ -70,7 +70,7 @@ var powerRed = 0;
 
 
 
-while (i < 25)
+while (i < 10)
 {
 
     random = getRandomInt(0,2);
@@ -100,12 +100,29 @@ while (i < 25)
     i++;
 }
 
+
+log();
+
+log(chalk`{red.italic Score du Power Rangers Rouge ::}   {red.bold ${powerRed}}.
+`);
+
+log();
+
+log(chalk`{green.italic Score du Power Rangers Vert ::}   {green.bold ${powerGreen}}.
+`);
+
+log();
+
+log(chalk`{blue.italic Score du Power Rangers Blue ::}   {blue.bold ${powerBlue}}.
+`);
     
-    log()
+    
+
     
     if(powerBlue > powerGreen && powerBlue > powerRed)
     {
         log(chalk`{bgBlue.white.bold.underline Power Rangers bleu remporte la partie !.}.`);
+        
 
     }
 
@@ -114,10 +131,32 @@ while (i < 25)
         log(chalk`{bgRed.white.bold.underline Power Rangers Rouge remporte la partie !.}.`);
     }
 
-    else
+
+
+
+    if(powerGreen > powerBlue && powerGreen > powerRed)
     {
         log(chalk`{bgGreen.white.bold.underline Power Rangers Vert remporte la partie !.}.`);
     }
+
+    if(powerBlue > powerRed && powerBlue === powerGreen)
+    {
+        log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
+    }
+
+    if(powerGreen > powerRed && powerBlue === powerGreen)
+    {
+        log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
+    }
+
+    if(powerRed > powerBlue && powerRed === powerGreen)
+    {
+        log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
+    }
+    
+    
+    
+ 
 
     log()
 
