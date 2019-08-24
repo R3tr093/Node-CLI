@@ -1,4 +1,8 @@
-<img src="header.png" style="width: 50%; margin: auto;"><hr>
 
+<p align="center">
+
+<img src="header.png"><hr>
+
+</p>
 
 ~ npm install --save chalk figlet inquirer shelljs
