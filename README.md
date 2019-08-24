@@ -32,7 +32,7 @@
 
 <p>:arrow_right: <b> npm -v   </b><em><br>( Vérification de la version de npm )</em></p>
 
-<p>  :star2: À ce stade vous posséder tout l'environnement nécessaires pour déployer la ToDo List </p>
+<p>  :star2: À ce stade vous posséder tout l'environnement nécessaires pour déployer le projet félicitation, vraiment. </p>
 
 
 ##  :cd: Installation du repository
@@ -46,7 +46,7 @@
 
 <p>:arrow_right: <b> ~ npm install --save chalk figlet inquirer shelljs </b><em><br>( Installe les modules que nous allons explorer.)</em></p>
 
-<p> Et voilà vous êtes bon , lancez depuis la racine de votre projet node index.js </p>
+<p> Et voilà vous êtes bon , lancez depuis la racine de votre projet la commande :: <b> node index.js </b> </p>
 
 <p> N'hésiter pas à lire les commentaires car c'est vraiment là que ce trouve tout l'intérêt du parcours, et à jouer un peu avec le code afin vous mettre dans le bain. </p>
 
