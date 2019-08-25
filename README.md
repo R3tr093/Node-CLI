@@ -65,4 +65,8 @@
 
 <p> N'hésiter pas à lire les commentaires car c'est vraiment là que ce trouve tout l'intérêt du parcours, et à jouer un peu avec le code afin vous mettre dans le bain. </p>
 
+<p>:hand: Si vous obtenez une erreur du type : <em> error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction </em> La commande ci-dessous pourrait solutionner le problème. </p>
+
+<p>:arrow_right: <b>  git reset --hard HEAD </b><em></p>
+
 <p> :hand: Si vous avez trouver une erreur, ou mieux encore que vous avez un retour positif à me faire, n'hésiter pas à m'envoyer un mail, je me sens seul en ce moment ;) </p>
