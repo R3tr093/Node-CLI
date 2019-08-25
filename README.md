@@ -53,7 +53,11 @@
 
 <p>:arrow_right: <b> npm init </b><em><br>( Crée une instance npm pour le projet.)</em></p>
 
+<<<<<<< HEAD
 <p> Il vous sera alors demander si vous désirez définir un configuration pour votre package.json, si vous le désirez vous pouvez entrez votre nom d'auteur, des dépendances, ou ce qui vous passe par la tête. Dans les faits vous pouvez appuyez sur enter jusqu'à ce qu'il initialise le repository car nous n'avons besoin d'aucunes particularités dans le cadre de projet.</p>
+=======
+<p> Il vous sera alors demander si vous désirez définir un configuration pour votre package.json, si vous le désirez vous pouvez entrez votre nom d'auteur, des dépendances, ou ce qui vous passe par la tête. Dans les faits vous pouvez appuyez sur enter jusqu'à ce qu'il initialise le repository car nous n'avons besoin d'aucunes particularités dans le cadre de projet. </p>
+>>>>>>> 3b88f369a85922ec9fdbbbc481bed139d63f3394
 
 <p>:arrow_right: <b> ~ npm install --save chalk figlet inquirer shelljs </b><em><br>( Installe les modules que nous allons explorer.)</em></p>
 
