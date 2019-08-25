@@ -9,7 +9,7 @@
 ##  :grey_question: About
 
 
-<p> Une petite séance découverte sur mon temps libre, nous allons explorer Node et surtouttenter de créer une application exploitable depuis le CLI de notre système.</p>
+<p> Une petite séance découverte sur mon temps libre, nous allons explorer Node et surtout tenter de créer une application exploitable depuis le CLI de notre système.</p>
 
 <p> J'ai donc parcouru plusieurs sites afin de trouver un tutoriel qui me plaisait ( et surtout que je pouvais comprendre  :confounded: ! ), ce tutoriel nous guide sur la création d'une petite application permettant de créer des fichiers depuis votre CLI, ce n'est pas le truc le plus révolutionnaire au monde, mais on y aborde pas mal de modules très intéressant que nous dépeceront ensuite tous ensemble dans la joie et la bonne humeur  :smiling_imp: </p>
 
