@@ -4,9 +4,6 @@
 
 // J'ai donc suivi le tutoriel et éplucher les modules utilisés un par un afin de pouvoir créer ma propre App CLI ! 
 
-// Le code ci-dessous parle de chalk, un module css pour le CLI en gros.
-
-
 // On récupère quelques modules qui vont nous permettre de manipuler le CLI.
 
 const inquirer = require("inquirer");
@@ -29,156 +26,19 @@ const basic = chalk.hex('#DEADED').bold;
 var styleArray = [error,warning,basic];
  
 
-// Maintenant que nous avons définis quelques thèmes et un raccourcis au console.log initialisons notre  programme avec une introduction sur Chalk.
+// Maintenant que nous avons définis quelques thèmes et un raccourcis au console.log initialisons notre programme .
 
 const init = () => {
 
 
 // Ceci à juste pour but d'améliorer la lisibilité du flux du programme, ignorez ce code pour le moment il sera expliquer plus bas.  
     log(chalk`
-    {white.bold !-- PASSAGE AU MODULE CHALK --! }
+    {white.bold !-- MODULE CHALK IGNORED ON THIS VERSION --! }
  
  `);
 
 
-// Vous pouvez appeler vos " thèmes " dans un log comme ceci. 
-log(error("Je suis un message de type message d'erreur.  - Error ! "));
-log(warning("Je suis un message de type message d'alerte - Warning ! "));
-log(basic("Je suis un message standard - Basic text font style."));
 
-
-
-// Notons aussi la possibilité d'une définition d'un backgroundColor, color, font-style :: bgWhite.green.bold 
-
-// Et en bonus track, un example d'interpolation de variables dans chalk ! Wouah j'ai la forme aujourd'hui !!!
-
-const pigs = 3;
-const pigscount = pigs => pigs * 3;
-
-log(chalk`
- Il y a  {bold 3 petits cochons} dans ma ferme.
- Je les multiplie par  {bold ${pigs}}, et turlututu chapeau pointu il y a  {bgWhite.green.bold ${pigscount(pigs)} petits cochons dans ma ferme.}.
-`);
-
-
-// On peut donc exécuter un petit script js dans ce style.
-
-var i = 0;
-
-function getRandomInt(min, max) {
-   min = Math.ceil(min);
-   max = Math.floor(max);
-   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-var random = getRandomInt(0,2);
-
-var powerGreen = 0;
-
-var powerBlue = 0;
-
-var powerRed = 0;
-
-
-
-while (i < 10)
-{
-
-   random = getRandomInt(0,2);
-
-   log()
-
-   if (random === 0)
-   {
-       powerRed++;
-       log(styleArray[random](" Badaboom Power Rangers Rouge ! "));
-   }
-
-   if (random === 1)
-   {
-       message = " Badaboom Power Rangers Vert ! ";
-       powerGreen++;
-       log(styleArray[random](" Badaboom Power Rangers Vert ! "));
-   }
-
-   if (random === 2)
-   {
-       message = " Badaboom Power Rangers Bleu ! ";
-       powerBlue++;
-       log(styleArray[random](" Badaboom Power Rangers Bleu ! "));
-   }
-   
-   i++;
-}
-
-
-log();
-
-log(chalk`{red.italic Score du Power Rangers Rouge ::}   {red.bold ${powerRed}}.
-`);
-
-log();
-
-log(chalk`{green.italic Score du Power Rangers Vert ::}   {green.bold ${powerGreen}}.
-`);
-
-log();
-
-log(chalk`{blue.italic Score du Power Rangers Blue ::}   {blue.bold ${powerBlue}}.
-`);
-   
-   
-
-   
-   if(powerBlue > powerGreen && powerBlue > powerRed)
-   {
-       log(chalk`{bgBlue.white.bold.underline Power Rangers bleu remporte la partie !.}.`);
-       
-
-   }
-
-   if(powerRed > powerGreen && powerRed > powerBlue)
-   {
-       log(chalk`{bgRed.white.bold.underline Power Rangers Rouge remporte la partie !.}.`);
-   }
-
-
-
-
-   if(powerGreen > powerBlue && powerGreen > powerRed)
-   {
-       log(chalk`{bgGreen.white.bold.underline Power Rangers Vert remporte la partie !.}.`);
-   }
-
-   if(powerBlue > powerRed && powerBlue === powerGreen)
-   {
-       log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
-   }
-
-   if(powerGreen > powerRed && powerBlue === powerGreen)
-   {
-       log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
-   }
-
-   if(powerRed > powerBlue && powerRed === powerGreen)
-   {
-       log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
-   }
-   
-   
-   
-
-
-   log()
-
-
-
-
-
-    log(chalk`
-  {red.bold Tu veux toi aussi faire du grand art avec Chalk ? Rien de plus simple  }{white.bold -->} {green.bold.italic https://www.npmjs.com/package/chalk}
-
-`);
 
 };
 
@@ -283,7 +143,7 @@ const askQuestions = () => {
        
     }
 
-    if(C === error("Un pingouin"))
+    if(C === basic("Un manchot"))
     {
         correct++;
     }
