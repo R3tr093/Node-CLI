@@ -356,6 +356,136 @@ const askQuestions = () => {
     
   };
 
+  // !-- Cette partie traite du module Figlet, il permet de réaliser un petit Art Work en se basant sur une chaîne de caractères -- !
+
+
+
+
+
+const buildFiglet = () => {
+  
+
+  log(chalk`
+  {white.bold !-- PASSAGE AU MODULE Figlet --! }
+
+`);
+
+
+  // Exemple du Hello World
+
+  // Étape 1 : Appeler notre module figlet sans appeler de fonction paraticulière dans celui-ci afin de voir l'affichage par défaut de Figlet.
+  figlet('Hello World!!', function(err, data) {
+   
+     if (err) {
+     
+       console.log('Something went wrong...');
+      
+       console.dir(err);
+      
+       return;
+    
+      }
+    
+      console.log(data)
+  });
+
+  // Le module Figlet comprend 5 fonctions distinctes, nous allons voir la fonction text , et textAsync je vous laisse chercher un peu pour les autres.
+
+  // À partir de ce stade vous remarquerez aisément la présence d'une fonction function(err, data) qui permet de traiter une erreur si tel est le cas,
+  
+  // ou de retourner sont résultat (data) si tout à fonctionner comme prévu.
+
+  // Exemple du Spokky ghost.
+
+  figlet.text("Spooky ghost !", {
+    font: 'Ghost',
+    horizontalLayout: 'fitted', // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+    verticalLayout: 'fitted' // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+    }, function(err, data) {
+    
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    
+    console.log(data);
+});
+
+// Nous avons appeler la fonction text du module Figlet et lui avons passé en paramètres le texte Spooky ghost ! et un Array contenant un jeu de propriétés - valeurs
+
+
+// Les fonts disponibles
+
+figlet.text(" BEAR text font !", {
+  font: 'Bear',
+  horizontalLayout: 'fitted', // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  verticalLayout: 'fitted' // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  }, function(err, data) {
+  
+  if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
+    }
+  
+    // Notez qu'ont peut toujours appelez nos thèmes chalk sur nos art works figlet !
+    console.log(warning(data));
+});
+
+
+figlet.fonts(function(err, fonts) {
+    if (err) {
+        console.log('something went wrong...');
+        console.dir(err);
+        return;
+    }
+
+    log(chalk`
+    {white.bold !-- Affichage des fonts Figlet --! }
+  
+  `);
+
+    console.dir(fonts);
+});
+
+// Si par hasard vous ne trouvez pas votre bonheur dans toutes ces polices, vous pouvez implémenter  une police depuis votre système avec le code suivant.
+
+/** const fs = require('fs');
+const path = require('path');
+ 
+let data = fs.readFileSync(path.join(__dirname, 'myfont.flf'), 'utf8');
+figlet.parseFont('myfont', data);
+console.log(figlet.textSync('myfont!', 'myfont'));
+
+
+**/
+
+
+// Et un dernier exemple pour la forme, parce qu'on est motivé !
+
+figlet.text(" Figlet Rock's !", {
+  font: 'Doom',
+  horizontalLayout: 'fitted', // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  verticalLayout: 'fitted' // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  }, function(err, data) {
+  
+  if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
+    }
+  
+    console.log(basic(data));
+    
+});
+
+
+
+
+}
+
+
 
 
 
@@ -388,7 +518,10 @@ const run = async () => {
     // Étape 3 : On traite les réponses obtenu par le module Inquirer dans la fonction resolveAnswers()
     
     const resolve = resolveAnswers(A, B , C , D, E);
-    // Faire autre chose
+    
+    // Étape 4 : Créez une signature personnalisez avec Figlet et Chalk
+    buildFiglet();
+    
     
     // autreChose();
 
