@@ -29,336 +29,139 @@ const basic = chalk.hex('#DEADED').bold;
 var styleArray = [error,warning,basic];
  
 
-// Maintenant que nous avons définis quelques thèmes et un raccourcis au console.log initialisons notre  programme avec une introduction sur Chalk.
-
-const init = () => {
-
-
-// Ceci à juste pour but d'améliorer la lisibilité du flux du programme, ignorez ce code pour le moment il sera expliquer plus bas.  
-    log(chalk`
-    {white.bold !-- PASSAGE AU MODULE CHALK --! }
- 
- `);
-
-
-// Vous pouvez appeler vos " thèmes " dans un log comme ceci. 
-log(error("Je suis un message de type message d'erreur.  - Error ! "));
-log(warning("Je suis un message de type message d'alerte - Warning ! "));
-log(basic("Je suis un message standard - Basic text font style."));
-
-
-
-// Notons aussi la possibilité d'une définition d'un backgroundColor, color, font-style :: bgWhite.green.bold 
-
-// Et en bonus track, un example d'interpolation de variables dans chalk ! Wouah j'ai la forme aujourd'hui !!!
-
-const pigs = 3;
-const pigscount = pigs => pigs * 3;
-
-log(chalk`
- Il y a  {bold 3 petits cochons} dans ma ferme.
- Je les multiplie par  {bold ${pigs}}, et turlututu chapeau pointu il y a  {bgWhite.green.bold ${pigscount(pigs)} petits cochons dans ma ferme.}.
-`);
-
-
-// On peut donc exécuter un petit script js dans ce style.
-
-var i = 0;
-
-function getRandomInt(min, max) {
-   min = Math.ceil(min);
-   max = Math.floor(max);
-   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-var random = getRandomInt(0,2);
-
-var powerGreen = 0;
-
-var powerBlue = 0;
-
-var powerRed = 0;
-
-
-
-while (i < 10)
-{
-
-   random = getRandomInt(0,2);
-
-   log()
-
-   if (random === 0)
-   {
-       powerRed++;
-       log(styleArray[random](" Badaboom Power Rangers Rouge ! "));
-   }
-
-   if (random === 1)
-   {
-       message = " Badaboom Power Rangers Vert ! ";
-       powerGreen++;
-       log(styleArray[random](" Badaboom Power Rangers Vert ! "));
-   }
-
-   if (random === 2)
-   {
-       message = " Badaboom Power Rangers Bleu ! ";
-       powerBlue++;
-       log(styleArray[random](" Badaboom Power Rangers Bleu ! "));
-   }
-   
-   i++;
-}
-
-
-log();
-
-log(chalk`{red.italic Score du Power Rangers Rouge ::}   {red.bold ${powerRed}}.
-`);
-
-log();
-
-log(chalk`{green.italic Score du Power Rangers Vert ::}   {green.bold ${powerGreen}}.
-`);
-
-log();
-
-log(chalk`{blue.italic Score du Power Rangers Blue ::}   {blue.bold ${powerBlue}}.
-`);
-   
-   
-
-   
-   if(powerBlue > powerGreen && powerBlue > powerRed)
-   {
-       log(chalk`{bgBlue.white.bold.underline Power Rangers bleu remporte la partie !.}.`);
-       
-
-   }
-
-   if(powerRed > powerGreen && powerRed > powerBlue)
-   {
-       log(chalk`{bgRed.white.bold.underline Power Rangers Rouge remporte la partie !.}.`);
-   }
+// Maintenant que nous avons définis quelques thèmes et un raccourcis au console.log initialisons notre  programme.
 
 
 
 
-   if(powerGreen > powerBlue && powerGreen > powerRed)
-   {
-       log(chalk`{bgGreen.white.bold.underline Power Rangers Vert remporte la partie !.}.`);
-   }
-
-   if(powerBlue > powerRed && powerBlue === powerGreen)
-   {
-       log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
-   }
-
-   if(powerGreen > powerRed && powerBlue === powerGreen)
-   {
-       log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
-   }
-
-   if(powerRed > powerBlue && powerRed === powerGreen)
-   {
-       log(chalk`{bold.underline Power Crash ! C'est un match nul .}.`);
-   }
-   
-   
-   
-
-
-   log()
+// !-- Cette partie traite du module Figlet, il permet de réaliser un petit Art Work en se basant sur une chaîne de caractères -- !
 
 
 
 
 
-    log(chalk`
-  {red.bold Tu veux toi aussi faire du grand art avec Chalk ? Rien de plus simple  }{white.bold -->} {green.bold.italic https://www.npmjs.com/package/chalk}
-
-`);
-
-};
-
-
-// Utilisons dans cette partie le module Inquirer :: https://www.npmjs.com/package/inquirer
-
-// Dans les grandes lignes ce module va nous permettre d'avoir des interactions avec notre utilisateur sur le CLI,  voyons comment l'utiliser.
-
-// !-- Attention les appels au variables comme error,warning, et basic sont celles que nous avions définis sur la séance découverte de chalk. -- !
-
-
-// Lorsque vous avez intégré le module inquirer et récupérer celui au sein d'une variable require cela rend cette variable éligible pour utiliser inquirer.
-
-/**
- 
-    Étape 1 : - Voyons plutôt la méthode inquirer.prompt(questions), nous utilisons notre variable inquirer afin de faire appel à la méthode prompt.
-    Étape 2 : - Cette méthode prend en argument un paramètre ici nous l'avons appeler question qui est censé être un Array contenant des valeurs liées à notre question.
-
-
-
- **/
-const askQuestions = () => {
-   
-    log(chalk`
-     {white.bold !-- PASSAGE AU MODULE INQUIRER --! }
+const buildFiglet = () => {
   
-  `);
+
+  log(chalk`
+  {white.bold !-- PASSAGE AU MODULE Figlet --! }
+
+`);
 
 
-      // Voici la structure d'un array qui contient plusieurs questions à poser à l'utilisateur.
+  // Exemple du Hello World
 
-      const questions = [
-      {
-          name: "A", // (String) Contient le nom de la variable à utiliser pour récupérer la réponse à votre question.
-          
-          type: "input",  // type: (String) Le " type de question ". Par défaut vous aurez la valeur input - Les différentes valeurs possibles étant : input, number, confirm, list, rawlist, expand, checkbox, password, editor
-          
-          message: warning(" -- > Combien de petits cochons reste t'il dans ma ferme ? : " ) // Contient le message à retourner avec la question.
-      },
-
-      {
-        type: "list",
-        name: "B",
-        message: basic(" Quelle est le meilleur langage de programmation : "),
-        choices: [ warning(" Javascript "), error(" PHP "),basic(" Python "), error(" CSS"),],
-      },
-
-      {
-        type: "list",
-        name: "C",
-        message: basic(" Quelle est la mascotte de Linux : "),
-        choices: [ warning("Une version Cheebee de Linus Torvald."), error("Un pingouin"),basic("Un manchot"), error("Un wombat"),],
-      },
-
-      {
-        type: "list",
-        name: "D",
-        message: basic(" Quelle est le plus vieux studio de jeux vidéos  : "),
-        choices: [ warning(" Ubisoft "), error(" EA Electronic Arts "),basic(" Square Enix "), error(" Nintendo "),],
-      },
-
-      {
-        type: "password",
-        name: "E",
-        message: basic(" Quelle est le mot de passe ?  : "),
-
+  // Étape 1 : Appeler notre module figlet sans appeler de fonction paraticulière dans celui-ci afin de voir l'affichage par défaut de Figlet.
+  figlet('Hello World!!', function(err, data) {
+   
+     if (err) {
+     
+       console.log('Something went wrong...');
+      
+       console.dir(err);
+      
+       return;
+    
       }
-    ];
+    
+      console.log(data)
+  });
 
+  // Le module Figlet comprend 5 fonctions distinctes, nous allons voir la fonction text , et textAsync je vous laisse chercher un peu pour les autres.
 
-    // On return un appel à la méthode prompt de notre constante inquirer en lui passant l'argument nécéssaire, notre array question.
-    return inquirer.prompt(questions);
-   
-  };
+  // À partir de ce stade vous remarquerez aisément la présence d'une fonction function(err, data) qui permet de traiter une erreur si tel est le cas,
+  
+  // ou de retourner sont résultat (data) si tout à fonctionner comme prévu.
 
+  // Exemple du Spokky ghost.
 
-  // Vous pourrez naturellement traiter vos réponses avec une fonction prenons pour exemple la fonction ci-dessous.
-
-  // Cette fonction doit prendre pour paramètres nos réponses, nous verrons ceci dans la constante run qui lance le programme.
-
-  // L'appel de cette fonction ressemble à ceci --> const resolve = resolveAnswers(A, B , C , D, E);
-
-  const resolveAnswers = (A,B,C,D,E) => {
-   
-    log(warning("Votre réponse A :: ") + A);
-    log(warning("Votre réponse B :: ") + B);
-    log(warning("Votre réponse C :: ") + C);
-    log(warning("Votre réponse D :: ") + D);
-    log(warning("Votre réponse E :: ") + E);
-
-    let correct = 0;
-
-    if(A === "9")
-    {
-        correct++;
+  figlet.text("Spooky ghost !", {
+    font: 'Ghost',
+    horizontalLayout: 'fitted', // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+    verticalLayout: 'fitted' // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+    }, function(err, data) {
+    
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
     }
     
-    if(B === basic(" Python "))
-    {
-        correct++;
+    console.log(data);
+});
 
-       
-    }
+// Nous avons appeler la fonction text du module Figlet et lui avons passé en paramètres le texte Spooky ghost ! et un Array contenant un jeu de propriétés - valeurs
 
-    if(C === error("Un pingouin"))
-    {
-        correct++;
-    }
-    if(D == error(" Nintendo "))
-    {
-        correct++;
-    }
-    if(E === "password" || E === "root")
-    {
-        correct++;
-    }
 
-    log();
+// Les fonts disponibles
 
-    if(correct === 0)
-    {
-        log(chalk`
-        {bgWhite.red.bold Mon dieu c'était si nul, que je n'ai même pas envie de te dire ton score.}
-      
-      `);
+figlet.text(" BEAR text font !", {
+  font: 'Bear',
+  horizontalLayout: 'fitted', // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  verticalLayout: 'fitted' // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  }, function(err, data) {
+  
+  if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
     }
+  
+    // Notez qu'ont peut toujours appelez nos thèmes chalk sur nos art works figlet !
+    console.log(warning(data));
+});
 
-    if(correct === 1)
-    {
-        log(chalk`
-        {bgWhite.red.bold Ton score c'est 1, vraiment pas de quoi être fière...}
-      
-      `);
-    }
 
-    if(correct === 2)
-    {
-        log(chalk`
-        {bgWhite.red.bold Votre score : 2 --> C'est pas mal.}
-      
-      `);
+figlet.fonts(function(err, fonts) {
+    if (err) {
+        console.log('something went wrong...');
+        console.dir(err);
+        return;
     }
-    
-    if(correct === 3)
-    {
-        log(chalk`
-        {bgWhite.red.bold Votre score : 3 --> Vous avez les bases.}
-      
-      `);
-    }
-
-    if(correct === 4)
-    {
-        log(chalk`
-        {bgWhite.red.bold Votre score : 4 --> Super, c'est plus que 3 et moins que 5 quand même...}
-      
-      `);
-    }
-
-    if(correct === 5)
-    {
-        log(chalk`
-        {bgWhite.red.bold Votre score : 5 --> Vous êtes incollable, et en plus vous avez bon goût ! }
-      
-      `);
-    }
-
-    log();
 
     log(chalk`
-    {red.bold Tu veux toi aussi créer tes propres quizz pourri ? Rien de plus simple  }{white.bold -->} {green.bold.italic https://www.npmjs.com/package/inquirer}
+    {white.bold !-- Affichage des fonts Figlet --! }
   
   `);
 
+    console.dir(fonts);
+});
+
+// Si par hasard vous ne trouvez pas votre bonheur dans toutes ces polices, vous pouvez implémenter  une police depuis votre système avec le code suivant.
+
+/** const fs = require('fs');
+const path = require('path');
+ 
+let data = fs.readFileSync(path.join(__dirname, 'myfont.flf'), 'utf8');
+figlet.parseFont('myfont', data);
+console.log(figlet.textSync('myfont!', 'myfont'));
+
+
+**/
+
+
+// Et un dernier exemple pour la forme, parce qu'on est motivé !
+
+figlet.text(" Figlet Rock's !", {
+  font: 'Doom',
+  horizontalLayout: 'fitted', // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  verticalLayout: 'fitted' // Valeurs possibles :: --> "default", full", "fitted", "controlled smushing", and "universal smushing". 
+  }, function(err, data) {
+  
+  if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
+    }
+  
+    console.log(basic(data));
     
-  };
+});
 
 
 
 
+}
 
 
 
@@ -369,25 +172,35 @@ const run = async () => {
     
     // Étape 1 : On lance la fonction init avec une présentation de Chalk.
 
-    init(); 
+  
 
 
 
     // Étape 2 : On crée un variable qui attendra le retour d'une valeur de la fonction askQuestion() , introduction à Inquirer.
 
-    const answers = await askQuestions(); 
+    //const answers = await askQuestions(); 
     
-    const { A, B , C , D, E} = answers; // On crée des variables qui vont récupérer leurs valeurs dans la constante answers
+    //const { A, B , C , D, E} = answers; // On crée des variables qui vont récupérer leurs valeurs dans la constante answers
 
-    log()
-    log(chalk`{bgWhite.red.bold Processus de traitements de vos réponses en cours... }`);
-    log()
+    //log()
+    //log(chalk`{bgWhite.red.bold Processus de traitements de vos réponses en cours... }`);
+    //log()
 
 
 
     // Étape 3 : On traite les réponses obtenu par le module Inquirer dans la fonction resolveAnswers()
     
-    const resolve = resolveAnswers(A, B , C , D, E);
+    //const resolve = resolveAnswers(A, B , C , D, E);
+   
+   
+    // Étape 4 : Réalisez une signature avec Figlet
+
+    log(chalk`{white.bold !-- Ignore le processus Chalk Introduction -- ! }`);
+    log(chalk`{white.bold !-- Ignore le processus Inquirer Introduction -- ! }`);
+    log(chalk`{white.bold !-- Lancement du processus Figlet introduction -- ! }`);
+    buildFiglet();
+   
+   
     // Faire autre chose
     
     // autreChose();
